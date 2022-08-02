@@ -35,6 +35,7 @@
         background: rgb(97, 228, 9);
         border-radius: 5px;
         box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+        font-size: 50;
     }
     .set_get{
         background: yellow;
@@ -70,6 +71,8 @@
         left: 50%;
         transform: translate(-55%, -50%);
         width: 70%;
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
 
         background-color: white;
         text-align: center;
@@ -83,6 +86,15 @@
         background-color: rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(3px);
     }
+    .start{
+        position: absolute;
+        transform: translate(-100%, 2900%);
+    }
+    .reset{
+        position: absolute;
+        transform: translate(-100%, 3100%);
+    }
+
 </style>
 <body>
     <h1 class="pop">RULES</h1>
@@ -91,9 +103,9 @@
         <div class="ply1">
             <h2>PLAYER 1</h2>
             <h2>SCORE</h2>
-            <div class="display"></div>
+            <div class="display"><h1 class="score1 value">0</h2></div>
             <br>
-            <div class="set_get">
+            <div class="set_get controles1">
                 <button>Get New Value</button><br><br>
                 <button>Set the current</button>
             </div>
@@ -102,34 +114,42 @@
         <div class="ply2">
             <h2>PLAYER 2</h2>
             <h2>SCORE</h2>
-            <div class="display"></div>
+            <div class="display"><h1 class="score2 value">0</h2></div>
             <br>
-            <div class="set_get">
+            <div class="set_get controles2">
                 <button>Get New Value</button><br><br>
                 <button>Set the current</button>
             </div>
         </div>
     </div>
+
+
+
     <div class="dashBoard">
         <h1>Dice</h1>
-        <div class="display"></div>
+        <div class="display"><h1 class="dice value">0</h2></div>
         <h1>Total</h1>
-        <div class="display"></div>
+        <div class="display"><h1 class="total value">0</h2></div>
     </div>
 
+    <div class="start">
+        <button>START</button>
+    </div>
 
-
+    <div class="reset">
+        <button>RESET</button>
+    </div>
 
 
     <div class="mask hidden"></div>
     <div class="message hidden">
-        The Rules Are as follows :<br>
-        1 ><br>
-        2 ><br>
-        3 ><br>
-        4 ><br>
-        5 ><br>
-        6 ><br>
+        <b><h2>The Rules Are as follows :</h2></b><br>
+        YOU CAN THROW DICE AND THE DICE VALUE WILL BE ADDED TO YOUR SCORE.<br>
+        BUT IF 1 SHOWS THEN YOU WILL LOOSE ALL POINTS.<br>
+        TO SAVE YOUR POINTS YOU CAN PASS CHANCE TO OTHER PLAYER.<br>
+        THE 1ST PERSON TO REACH 100 WILL WIN.<br>
+        THIS IS PURELY BASED ON LUCK.<br>
+        EMJOY !!!!!!!!<br><br>
     </div>
     
 
@@ -138,15 +158,52 @@
 
     <script>
         'use strict'
+
+        // THESE 2 CODES ARE FOR RULES SECTION
         document.querySelector(".pop").addEventListener('click', function(){
             document.querySelector(".message").classList.remove("hidden");
             document.querySelector(".mask").classList.remove("hidden");
-        })
+        });
 
         document.querySelector(".mask").addEventListener('click', function(){
             document.querySelector(".message").classList.add("hidden");
             document.querySelector(".mask").classList.add("hidden");
-        })
+        });
+
+        // These 2 functions will show/ hide player 2 controles.
+        // This is so cuz when player has to throw dice then player 2 controles will be removed from screen.
+        function p1_is_active(){
+            document.querySelector(".controles2").classList.add('hidden');
+        };
+
+        function p2_is_active(){
+            document.querySelector(".controles1").classList.add('hidden');
+        };
+
+        // Starting the game and important controles like start and reset...
+        let active_player = 0;
+
+        document.querySelector('.start').addEventListener('click', function(){
+            p1_is_active();
+            active_player = 1;
+        });
+
+        document.querySelector('.reset').addEventListener('click', function(){
+            document.querySelector(".controles1").classList.remove('hidden');
+            document.querySelector(".controles2").classList.remove('hidden');
+            active_player = 0;
+
+            // document.querySelector('.score1').textContent = 0;
+            // document.querySelector('.score2').textContent = 0;
+            // document.querySelector('.dice').textContent = 0;
+            // document.querySelector('.total').textContent = 0;
+
+            let value_nav = document.querySelectorAll('.value');
+            value_nav.forEach(element => {
+                element.textContent = 0;
+            });
+        });
+        
     </script>
 </body>
 </html>
