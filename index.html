@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE JS GAME</title>
+</head>
+<style>
+    body{
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        line-height: 1.5;
+        height: 98vh;
+        background: linear-gradient(to top left, #28b487, #7dd56f);
+    }
+    .name{
+        position: absolute;
+        color: black;
+        transform: translate(-30%, +0%);
+    }
+    .ply1{
+        transform: translate(-280%, +100%);
+        text-align: center;
+    }
+    .ply2{
+        transform: translate(+280%, -10%);
+        text-align: center;
+    }
+    .display{
+        width: 120px;
+        height: 100px;
+        background: rgb(97, 228, 9);
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    }
+    .set_get{
+        background: yellow;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    }
+
+    .dashBoard{
+        transform: translate(-100%, +60%);
+        text-align: center;
+        background: yellow;
+        border-radius: 5px;
+    }
+
+
+
+
+
+
+    .pop{
+        position: fixed;
+        transform: translate(-300%, +0%);
+        width: 11%;
+        background: rgb(236, 14, 44);
+        color: rgb(255, 251, 0);
+        text-align: center;
+    }
+    .hidden{
+        display: none;
+    }
+    .message{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-55%, -50%);
+        width: 70%;
+
+        background-color: white;
+        text-align: center;
+    }
+    .mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(3px);
+    }
+</style>
+<body>
+    <h1 class="pop">RULES</h1>
+    <h1 class="name">The Dice Game</h1>
+    <div class="players">
+        <div class="ply1">
+            <h2>PLAYER 1</h2>
+            <h2>SCORE</h2>
+            <div class="display"></div>
+            <br>
+            <div class="set_get">
+                <button>Get New Value</button><br><br>
+                <button>Set the current</button>
+            </div>
+        </div>
+
+        <div class="ply2">
+            <h2>PLAYER 2</h2>
+            <h2>SCORE</h2>
+            <div class="display"></div>
+            <br>
+            <div class="set_get">
+                <button>Get New Value</button><br><br>
+                <button>Set the current</button>
+            </div>
+        </div>
+    </div>
+    <div class="dashBoard">
+        <h1>Dice</h1>
+        <div class="display"></div>
+        <h1>Total</h1>
+        <div class="display"></div>
+    </div>
+
+
+
+
+
+    <div class="mask hidden"></div>
+    <div class="message hidden">
+        The Rules Are as follows :<br>
+        1 ><br>
+        2 ><br>
+        3 ><br>
+        4 ><br>
+        5 ><br>
+        6 ><br>
+    </div>
+    
+
+
+
+
+    <script>
+        'use strict'
+        document.querySelector(".pop").addEventListener('click', function(){
+            document.querySelector(".message").classList.remove("hidden");
+            document.querySelector(".mask").classList.remove("hidden");
+        })
+
+        document.querySelector(".mask").addEventListener('click', function(){
+            document.querySelector(".message").classList.add("hidden");
+            document.querySelector(".mask").classList.add("hidden");
+        })
+    </script>
+</body>
+</html>
