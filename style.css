@@ -1,0 +1,82 @@
+    body{
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        line-height: 1.5;
+        height: 98vh;
+        background: linear-gradient(to top left, #28b487, #7dd56f);
+    }
+    .name{
+        position: absolute;
+        color: black;
+        transform: translate(-30%, +0%);
+    }
+    .ply1{
+        transform: translate(-280%, +100%);
+        text-align: center;
+    }
+    .ply2{
+        transform: translate(+280%, -10%);
+        text-align: center;
+    }
+    .display{
+        width: 120px;
+        height: 100px;
+        background: rgb(97, 228, 9);
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+        font-size: 50;
+    }
+    .set_get{
+        background: yellow;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    }
+
+    .dashBoard{
+        transform: translate(-100%, +60%);
+        text-align: center;
+        background: yellow;
+        border-radius: 5px;
+    }
+
+    .pop{
+        position: fixed;
+        transform: translate(-300%, +0%);
+        width: 11%;
+        background: rgb(236, 14, 44);
+        color: rgb(255, 251, 0);
+        text-align: center;
+    }
+    .hidden{
+        display: none;
+    }
+    .message{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-55%, -50%);
+        width: 70%;
+        border-radius: 5px;
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+
+        background-color: white;
+        text-align: center;
+    }
+    .mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(3px);
+    }
+    .start{
+        position: absolute;
+        transform: translate(-100%, 2900%);
+    }
+    .reset{
+        position: absolute;
+        transform: translate(-100%, 3100%);
+    }
